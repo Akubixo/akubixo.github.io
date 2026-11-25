@@ -38,7 +38,7 @@ for page in sorted(PAGES):
     if "Level Designer" not in header: problems.append(f"{page}: brand missing from header")
     if p.figs != p.caps: problems.append(f"{page}: {p.figs} figures but {p.caps} captions")
     for r in p.refs:
-        if r.startswith(("http", "mailto:")): continue
+        if r.startswith(("http", "mailto:", "tel:")): continue
         if r.startswith("#") and r != "#main": problems.append(f"{page}: in-page bookmark link {r}")
         if r.startswith("#"): continue
         if not os.path.exists(os.path.join(ROOT, r.split("#")[0])): problems.append(f"{page}: broken link -> {r}")

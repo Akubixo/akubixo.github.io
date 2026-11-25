@@ -99,7 +99,7 @@ ul.clean li::marker { color: var(--path); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 0; list-style: none; }
 .chips li { font-family: var(--font-mono); font-size: 12.5px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; color: #cfd5dc; background: var(--bg-2); }
 .badge {
-  display: inline-block; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  display: inline-block; align-self: flex-start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
   padding: 3px 8px; border-radius: 4px; background: rgba(255,179,71,.14); color: var(--path); border: 1px solid rgba(255,179,71,.4);
 }
 
@@ -134,7 +134,7 @@ section.block { padding: 56px 0; border-top: 1px solid var(--line); }
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
 
 /* ---------- Project cards ---------- */
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .card {
   background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
   display: flex; flex-direction: column; color: var(--text); transition: transform .15s, border-color .15s;
@@ -261,7 +261,15 @@ figcaption b { font-family: var(--font-mono); font-weight: 500; font-size: 12px;
   .site-header .wrap { flex-direction: column; align-items: flex-start; padding-top: 12px; padding-bottom: 8px; }
   .site-header { position: static; }
   .nav a { padding: 6px 8px; }
-  .grid-2, .grid-3, .compare { grid-template-columns: 1fr; }
+  .grid-2, .grid-3, .compare, .cards { grid-template-columns: 1fr; }
   .hero { padding-top: 48px; }
   .pipeline li:not(:last-child)::after { width: 20px; margin: 0 8px; }
+}
+
+/* ---------- Stage-to-stage transition strip ---------- */
+.steps { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 14px; align-items: start; }
+.step-arrow { font-family: var(--font-mono); color: var(--path); font-size: 22px; padding-top: 18%; }
+@media (max-width: 860px) {
+  .steps { grid-template-columns: 1fr; }
+  .step-arrow { padding: 0; text-align: center; transform: rotate(90deg); }
 }
