@@ -21,3 +21,10 @@
   box.addEventListener('click', close);
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 })();
+
+// Before/after sliders
+document.querySelectorAll('.ba-wrap').forEach(function (w) {
+  var r = w.querySelector('input');
+  function set() { w.style.setProperty('--pos', r.value + '%'); }
+  r.addEventListener('input', set); set();
+});

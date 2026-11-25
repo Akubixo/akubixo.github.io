@@ -305,3 +305,17 @@ figcaption b { font-family: var(--font-mono); font-weight: 500; font-size: 12px;
 .hero-map .legend .lh { fill: var(--path); letter-spacing: 2px; }
 .hero-map .legend .path { animation: none; }
 .panel > :last-child { margin-bottom: 0; }
+
+/* ---------- Before/after slider ---------- */
+.ba-wrap { --pos: 50%; position: relative; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: #000; user-select: none; }
+.ba-wrap > img { width: 100%; display: block; }
+.ba-before { position: absolute; inset: 0; clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-before img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ba-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--path); transform: translateX(-1px); pointer-events: none; }
+.ba-line::after { content: "⇆"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 36px; height: 36px; border-radius: 50%; background: var(--path); color: #111; display: grid; place-items: center; font-size: 18px; font-weight: 700; }
+.ba-tag { position: absolute; top: 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; background: rgba(13,17,23,.8); color: var(--text); padding: 4px 8px; border-radius: 4px; pointer-events: none; }
+.ba-tag.l { left: 12px; } .ba-tag.r { right: 64px; }
+.ba-wrap input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; }
+.ba-wrap input:focus-visible + * , .ba-wrap:focus-within { outline: 2px solid var(--link); outline-offset: 2px; }
+
+figure .frame img { max-height: 75vh; object-fit: contain; margin: 0 auto; }
